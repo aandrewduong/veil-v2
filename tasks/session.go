@@ -1,6 +1,7 @@
 package tasks
 
 import (
+	"errors"
 	"fmt"
 	"github.com/PuerkitoBio/goquery"
 	"net/url"
@@ -72,8 +73,10 @@ func (t *Task) Login() error {
 	switch message {
 	case "The username you entered cannot be identified.":
 		fmt.Println("Invalid username")
+		return errors.New(message)
 	case "The password you entered was incorrect.":
 		fmt.Println("Invalid password")
+		return errors.New(message)
 	case "You may be seeing this page because you used the Back button while browsing a secure web site or application. Alternatively, you may have mistakenly bookmarked the web login form instead of the actual web site you wanted to bookmark or used a link created by somebody else who made the same mistake.  Left unchecked, this can cause errors on some browsers or result in you returning to the web site you tried to leave, so this page is presented instead.":
 		fmt.Println("Bad session")
 	case "":
@@ -157,7 +160,11 @@ func (t *Task) SubmitSSOManager() error {
 func (t *Task) GenSession() {
 	t.GenSessionId()
 	t.VisitHomepage()
-	t.Login()
+	err := t.Login()
+	if err != nil {
+		fmt.Println(err)
+		panic(0)
+	}
 	t.SubmitCommonAuth()
 	t.SubmitSSOManager()
 	t.RegisterPostSignIn()

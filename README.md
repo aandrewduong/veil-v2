@@ -42,10 +42,10 @@ For the tool to function correctly, "settings.csv" is required to be setup prope
 | Username             | Your FHDA Username                                  | `00000000`                                   |
 | Password             | Your FHDA Password                                  | `TestTestPassword123`                        |
 | Term                 | Term                                                | `2024 Spring De Anza`                        |
-| Subject              | Subject (Used for Class Search)                     | `MATH`                                       |
+| Subject              | Subject (Used only for Class Search)                     | `MATH`                                       |
 | Mode                 | Type of Task                                        | `Signup`                                     |
 | CRNs                 | Course Reference Numbers (Multiple Supported)       | `47520,44412,41846`                          |
-| Webhook       | Discord Webhook URL (For notifications)                    | `https://discord.com/api/webhooks/[gone] `   |
+| Webhook       | Discord Webhook URL (For Notifications)                    | `https://discord.com/api/webhooks/[gone] `   |
 
 To create a Discord Webhook, See [How to Create a Discord Webhook](https://hookdeck.com/webhooks/platforms/how-to-get-started-with-discord-webhooks).
 
